@@ -20,12 +20,6 @@ public class UploadApplication {
 		SpringApplication.run(UploadApplication.class, args);
 	}
 
-	@Bean
-	public IPFS ipfs() throws IOException {
-		IPFS ipfs = new IPFS("/ip4/127.0.0.1/tcp/5001");
-		ipfs.refs.local();
-		return ipfs;
-	}
 
 	@Bean
 	public IPFSCluster ipfsCluster() {
