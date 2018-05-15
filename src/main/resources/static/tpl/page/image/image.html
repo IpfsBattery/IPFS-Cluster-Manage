@@ -1,0 +1,66 @@
+<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">文件管理</h1>
+</div>
+<div class="wrapper-md" ng-controller="listImageCtrl">
+    <div class="panel panel-default">
+        <div class="page-header clearfix">
+            <form class="form-horizontal ng-pristine ng-valid" role="form">
+                <!--#section:elements.form -->
+                <div class="col-xs-12 col-sm-6 hidden-480">
+                    <div class="checkbox">
+                        <label class="i-checks">
+                            <input checked="" type="radio" ng-click="search()"
+                                   ng-model="status" value=""><i></i> 查看全部
+                        </label>
+                        &nbsp;&nbsp;&nbsp;
+                        <label class="i-checks">
+                            <a class="btn btn-sm btn-default" target="_self" ng-href="#/app/addImage/">新增</a>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="input-group col-sm-6 col-sm-offset-6 col-xs-12">
+                        <input type="text" class="form-control search-query" ng-model="name"
+                               placeholder="输入图片名称">
+                        <span class="input-group-btn">
+                            <button class="btn m-b-xs w-xs btn-info" ng-click="searchByName()">搜索</button>
+						</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover table-condensed" id="grid" style="border-collapse: separate;">
+                <thead>
+                <tr>
+                    <th>文件名称</th>
+                    <th>文件地址</th>
+                    <th>文件备注</th>
+                    <th>文件后缀</th>
+                    <th>文件预览</th>
+                </tr>
+                </thead>
+                <tbody ng-repeat="item in listData">
+                <tr>
+                    <td>{{item.name}}</td>
+                    <td>{{item.hashValue}}</td>
+                    <td>{{item.remark}}</td>
+                    <td>{{item.suffix}}</td>
+                    <td><img src="http://localhost:8080/ipfs/{{item.hashValue}}" width="80" height="50"/></td>
+                    <td>
+                        <a class="btn btn-primary btn-xs" ng-href="http://localhost:8080/ipfs/{{item.hashValue}}" target="_Blank">预览</a>
+                        <a class="btn btn-primary btn-xs" ng-href="#/app/addImage/?id={{item.id}}">修改</a>
+                        <input type="button"
+                               class="btn btn-primary btn-xs"
+                               ng-click="deleteImageById(item.id)" value="删除"/>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <footer class="panel-footer">
+            <tm-pagination conf="paginationConf"></tm-pagination>
+        </footer>
+    </div>
+</div>
+

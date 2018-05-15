@@ -1,0 +1,43 @@
+<div class="navbar-header {{app.settings.navbarHeaderColor}}">
+    <button class="pull-right visible-xs dk" ui-toggle-class="show" data-target=".navbar-collapse">
+        <i class="glyphicon glyphicon-cog"></i>
+    </button>
+    <button class="pull-right visible-xs" ui-toggle-class="off-screen" data-target=".app-aside" ui-scroll="app">
+        <i class="glyphicon glyphicon-align-justify"></i>
+    </button>
+    <a href="#/" class="navbar-brand text-lt">
+        <i class="fa fa-btc"></i>
+        <img src="img/logo.png" alt="." class="hide">
+        <span class="hidden-folded m-l-xs">{{app.name}}</span>
+    </a>
+</div>
+<div class="collapse pos-rlt navbar-collapse box-shadow {{app.settings.navbarCollapseColor}}"
+     ng-controller="headerCtrl">
+    <ul class="nav navbar-nav">
+        <li class="dropdown" dropdown>
+            <a href class="dropdown-toggle" dropdown-toggle>
+                <span class="font-bold">version </span>1.0
+            </a>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown open" dropdown="">
+            <a href="" class="dropdown-toggle clear" dropdown-toggle="" aria-haspopup="true" aria-expanded="true">
+                <span class="hidden-sm hidden-md">{{entity.supInfo.name}}</span> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu animated fadeInRight w">
+                <li>
+                    <a ng-click="showChangePass()">
+                        修改密码
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a ng-click="loginOut()">
+                        退出登录
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
